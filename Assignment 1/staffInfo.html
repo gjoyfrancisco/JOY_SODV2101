@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Staff Info</title>
         <link rel="stylesheet" href="style.css">
         <script src="main.js" defer></script>
     </head>
@@ -11,19 +11,35 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html"></a>Profile Page</li>
+                <li><a href="index.html">Profile Page</a></li>
                 <li><a href="marktoGrade.html">Mark to Grade</a></li>
-                <li><a href="staffInfo.html"></a>Staff</li>
+                <li><a href="staffInfo.html">Staff</a></li>
                 <li><a href="tempConvert.html">Temperature Converter</a></li>
             </ul>
         </nav>
 
     </header>
     <main>
-
+        <h2>Staff Info</h2>
+        <table id="staff-table">
+  <thead>
+    <tr>
+      <th onclick="sortByColumn(0)">Name 🔃</th>
+      <th onclick="sortByColumn(1)">Position 🔃</th>
+      <th onclick="sortByColumn(2)">Office 🔃</th>
+      <th onclick="sortByColumn(3)">Ext 🔃</th>
+      <th onclick="sortByColumn(4)">Start Date 🔃</th>
+      <th onclick="sortByColumn(5)">Salary 🔃</th>
+    </tr>
+  </thead>
+  <tbody id="staff-body">
+    <!-- Rows go here -->
+  </tbody>
+</table>
     </main>
     <footer>
-    
+        <p>copyright© Grecille Joy Francisco, <span id="year"></span></p>
+        <p>All rights reserved.</p>
     </footer>
 </body>
 </html>

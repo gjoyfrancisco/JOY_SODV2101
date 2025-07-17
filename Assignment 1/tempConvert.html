@@ -20,11 +20,19 @@
 
     </header>
     <main>
-        <h2>Temperature Converter</h2>
-        <p>Convert Celcius to Farenheight and vice versa.</p>
-        
 
+        <h2>Temperature Converter🔥</h2>
+        <p>Conversion from Celsius to Fahrenheit and Kelvin.</p>
+        <input type="number" id="temperatureInput" placeholder="Enter the temperature" />
+        <select id="temperatureType">
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
+        </select>
+        <button onclick="convertTemperature()">Convert</button>
 
+        <div id="temperatureOutput"></div>
+    
     </main>
     <footer>
         <p>copyright© Grecille Joy Francisco, <span id="year"></span></p>

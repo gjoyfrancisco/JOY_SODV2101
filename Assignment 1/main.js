@@ -78,71 +78,55 @@ var dataSet = [
     [ "Martena Mccray", "Post-Sales support", "Edinburgh", "8240", "2011/03/09", "$324,050" ],
     [ "Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675" ]
 ];
-// Item
-let currentSort = { column: null, ascending: true };
+
+// Item Sorter
+let sorter = {column: null, ascending: true};
 
 function renderTable() {
-  const tbody = document.getElementById("staffBody");
-  tbody.innerHTML = "";
+  const staffBody = document.getElementById("staffBody");
+  staffBody.innerHTML = ""; // To clear existing rows
 
-  dataSet.forEach(row => {
+  dataSet.forEach((row) => {
     const tr = document.createElement("tr");
-    row.forEach(cell => {
+    row.forEach((cell) => {
       const td = document.createElement("td");
       td.textContent = cell;
       tr.appendChild(td);
     });
-    tbody.appendChild(tr);
+    staffBody.appendChild(tr);
   });
 }
 
-function sortByColumn(colIndex) {
-  const isSalary = colIndex === 5;
-  const ascending = currentSort.column === colIndex ? !currentSort.ascending : true;
+function sortByColumn(columnIndex) {
+  const isSalary = columnIndex === 5;
+
+  // If we're clicking the same column, flip the sort direction
+  const ascending = sorter.column === columnIndex ? !sorter.ascending : true;
 
   dataSet.sort((a, b) => {
-    let valA = a[colIndex];
-    let valB = b[colIndex];
+    let aValue = a[columnIndex];
+    let bValue = b[columnIndex];
 
     if (isSalary) {
-      valA = parseInt(valA.replace(/[$,]/g, ""));
-      valB = parseInt(valB.replace(/[$,]/g, ""));
+      aValue = parseFloat(aValue.replace(/[$,]/g, ""));
+      bValue = parseFloat(bValue.replace(/[$,]/g, ""));
     }
 
     return ascending
-      ? valA > valB ? 1 : valA < valB ? -1 : 0
-      : valA < valB ? 1 : valA > valB ? -1 : 0;
+      ? aValue > bValue ? 1 : aValue < bValue ? -1 : 0
+      : aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
   });
 
-  currentSort = { column: colIndex, ascending };
+  sorter = { column: columnIndex, ascending };
   renderTable();
 }
-
-
+window.onload = function () {
+  renderTable();
+};
 
 
 // The Temperature Converter Part
-// function convertTemperature() {
-//     const inputTemp = document.getElementById("temperatureInput").value.trim();
-//     const outputTemp = document.getElementById("temperatureOutput");
-//     const validMessage = document.getElementById("validMessage");
 
-//     try {
-//         if (inputTemp === "") throw new Error("The input is empty. Please enter a valid temperature.");
-//         const temp = parseFloat(inputTemp);
-
-//         if (isNaN(temp)) throw new Error("The input is invalid. Please enter a number.");
-
-//         const celsius = (temp - 32) * 5 / 9;
-//         outputTemp.textContent = `Converted Temperature: ${celsius.toFixed(2)} °C`;
-//         validMessage.textContent = "";
-//         outputTemp.style.color = "green";
-
-//     } catch (error) {
-//         validMessage.textContent = error.message;
-//         validMessage.style.color = "red";
-//     }
-// }
 function convertTemperature() {
   const tempInput = parseFloat(document.getElementById("temperatureInput").value);
   const tempType = document.getElementById("temperatureType").value;
@@ -181,3 +165,4 @@ function convertTemperature() {
   `;
 }
 
+// Thank you!

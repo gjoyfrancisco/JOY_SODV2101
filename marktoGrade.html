@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mark to Grade Converter</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer></script>
+    </head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Profile Page</a></li>
+                <li><a href="marktoGrade.html">Mark to Grade</a></li>
+                <li><a href="staffInfo.html">Staff</a></li>
+                <li><a href="tempConvert.html">Temperature Converter</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+
+        <h2>Mark to Grade Page</h2>
+        <p>This page take the students marks and calculates the grade based on the marks entered</p>
+
+        <input type="text" id="InputBox" placeholder="Enter your mark" />
+        <button onclick="convertMarksToGrade()">Convert</button>
+        <p id="validMessage"></p>
+
+    </main>
+    <footer>
+        <p>copyright© Grecille Joy Francisco, <span id="year"></span></p>
+        <p>All rights reserved.</p>
+    </footer>
+</body>
+</html>
